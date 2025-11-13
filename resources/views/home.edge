@@ -1,0 +1,44 @@
+@layout('layouts/base')
+
+@if(!userId)
+  <section class="bg-white/70 backdrop-blur shadow-sm rounded-3xl px-8 py-16 text-center border border-slate-200">
+    <h2 class="text-3xl font-semibold text-slate-900">Welcome to the Wall</h2>
+    <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">Press begin to receive your anonymous voice and start sharing appreciation or unburdening what feels heavy.</p>
+    <form method="post" action="{{ route('begin') }}" class="mt-10 inline-flex">
+      <button type="submit" class="px-10 py-3 rounded-full text-lg font-medium text-white bg-sky-500 hover:bg-sky-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-sky-400 transition">Begin</button>
+    </form>
+  </section>
+@else
+  <section class="grid gap-8 md:grid-cols-2">
+    <article class="bg-white shadow-sm rounded-3xl border border-slate-200 px-8 py-10 flex flex-col">
+      <header>
+        <h2 class="text-2xl font-semibold text-emerald-600">Appreciate Someone</h2>
+        <p class="mt-3 text-slate-600">Share a moment of gratitude or kindness. Your words remain anonymous but their warmth carries through.</p>
+      </header>
+      <form method="post" action="{{ route('messages.storePraise') }}" class="mt-8 flex flex-col gap-6 flex-1">
+        <textarea name="content" rows="6" placeholder="Write your note of appreciation..." class="w-full resize-none rounded-2xl border border-emerald-200 bg-emerald-50/40 px-4 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-300"></textarea>
+        <button type="submit" class="self-start px-6 py-2.5 rounded-full text-white bg-emerald-500 hover:bg-emerald-600 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-emerald-400">Send appreciation</button>
+      </form>
+    </article>
+
+    <article class="bg-white shadow-sm rounded-3xl border border-slate-200 px-8 py-10 flex flex-col">
+      <header>
+        <h2 class="text-2xl font-semibold text-sky-600">Share What’s Heavy</h2>
+        <p class="mt-3 text-slate-600">Let the community hold space for the weight you carry. Speak freely and anonymously.</p>
+      </header>
+      <form method="post" action="{{ route('messages.storeIssue') }}" class="mt-8 flex flex-col gap-6 flex-1">
+        <textarea name="content" rows="6" placeholder="What’s on your heart today?..." class="w-full resize-none rounded-2xl border border-sky-200 bg-sky-50/60 px-4 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-300"></textarea>
+        <button type="submit" class="self-start px-6 py-2.5 rounded-full text-white bg-sky-500 hover:bg-sky-600 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-sky-400">Share what’s heavy</button>
+      </form>
+    </article>
+  </section>
+
+  <div class="mt-12 text-center">
+    <a href="{{ route('history') }}" class="inline-flex items-center gap-2 text-slate-600 hover:text-slate-900 font-medium">
+      <span>Visit the History Wall</span>
+      <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+        <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 0 1 1.414 0l5 5a1 1 0 0 1 0 1.414l-5 5a1 1 0 0 1-1.414-1.414L13.586 10H4a1 1 0 1 1 0-2h9.586l-3.293-3.293a1 1 0 0 1 0-1.414Z" clip-rule="evenodd" />
+      </svg>
+    </a>
+  </div>
+@end

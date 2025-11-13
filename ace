@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+import 'reflect-metadata'
+import { fileURLToPath } from 'node:url'
+import { dirname } from 'node:path'
+import { createAceKernel } from '@adonisjs/core/factories'
+
+const appRoot = dirname(fileURLToPath(import.meta.url))
+
+const kernel = await createAceKernel(appRoot)
+await kernel.boot()
+await kernel.handle(process.argv.slice(2))
+await kernel.exit()

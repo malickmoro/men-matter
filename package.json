@@ -1,0 +1,34 @@
+{
+  "name": "wall-of-voices",
+  "version": "1.0.0",
+  "description": "Wall of Voices - anonymous appreciation and sharing platform built with AdonisJS",
+  "type": "module",
+  "scripts": {
+    "dev": "node ace serve --watch",
+    "start": "node build/server.js",
+    "build": "node ace build --production"
+  },
+  "engines": {
+    "node": ">=18.18.0"
+  },
+  "dependencies": {
+    "@adonisjs/core": "^6.8.0",
+    "@adonisjs/lucid": "^20.5.0",
+    "@adonisjs/session": "^6.4.0",
+    "@adonisjs/view": "^7.2.0",
+    "@adonisjs/vite": "^2.0.0",
+    "edge.js": "^6.0.0",
+    "luxon": "^3.4.4",
+    "pg": "^8.11.3",
+    "reflect-metadata": "^0.2.2"
+  },
+  "devDependencies": {
+    "@adonisjs/assembler": "^6.7.0",
+    "@types/node": "^20.12.7",
+    "autoprefixer": "^10.4.18",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.3",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.6"
+  }
+}
